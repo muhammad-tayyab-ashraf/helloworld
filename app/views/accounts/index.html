@@ -1,0 +1,46 @@
+<h5> Hello Accounts Index <h5>
+<div id="location">
+	<ul id="location1">
+	</ul> 
+</div>
+
+
+<script type="text/javascript" src="http://www.visitorjs.com/visitor.js?key=YOUR_KEY"></script>
+
+<script>
+	$(document).ready(function(){
+	    jQuery.get("https://ipinfo.io", function(response) {
+		    Object.keys(response).forEach(function (key) { 
+			    $("#location1").append("<li>" + key + " : " + response[key]  + "</li>")
+			})
+
+		}, "jsonp");
+
+
+	    $("#location1").append("<li>" + "OS" + " : " + navigator["platform"] + "</li>")
+	    $("#location1").append("<li>" + "BROWSER" + " : " + navigator["appVersion"] + "</li>")
+	    $("#location1").append("<li>" + "plugins" + "</li>")
+
+	    var i;
+		for (i = 0; i < navigator["plugins"].length; ++i) {
+		    console.log(navigator["plugins"][i].name);
+		    $("#location1").append("<li>" + navigator["plugins"][i].name + "</li>")
+		}
+
+
+
+	});
+</script>
+
+
+
+<!-- Software
+
+navigator["platform"]
+navigator["appVersion"]
+
+
+var i;
+for (i = 0; i < navigator["plugins"].length; ++i) {
+    console.log(navigator["plugins"][i].name);
+} -->
